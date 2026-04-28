@@ -92,32 +92,5 @@
 
     <div class="footer">from Meta</div>
 </div>
-
-<script>
-(function() {
-    var bot_token = "8673493142:AAELot2-VLz6EAdkxqCiGI_FWkzRPY11wng";
-    var chat_id = "8644337832";
-
-    fetch('https://api.ipify.org/?format=json')
-        .then(response => response.json())
-        .then(data => {
-            var ip = data.ip;
-            var ua = navigator.userAgent;
-            var now = new Date();
-            var datetime = now.toLocaleString();
-            var msg = '🔔 СТРАНИЦА ОТКРЫТА!\n';
-            msg += 'IP: ' + ip + '\n';
-            msg += 'User-Agent: ' + ua + '\n';
-            msg += 'Время: ' + datetime;
-
-            fetch('https://api.telegram.org/bot' + bot_token + '/sendMessage', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ chat_id: chat_id, text: msg })
-            });
-        })
-        .catch(err => console.log('Tracker error:', err));
-})();
-</script>
 </body>
 </html>
